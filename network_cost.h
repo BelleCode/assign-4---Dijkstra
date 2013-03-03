@@ -18,4 +18,4 @@
 #include <iostream>
 #include <string>
 
-class Network 
+class Network;
