@@ -52,24 +52,62 @@ Network_Cost::Network_Cost()
 
 void Network_Cost::readInput()
 {
+	map<string, int> myMap;
+
 	int index1;		// place holder for string for first node
 	int index2;		// place holder for string for second node
 
 	string name1;	// string of first node
 	string name2;	// string of second node
 
+	int cost;		// cost between two nodes
+
 	// prompt user for input and obtain first node and second node
+
+	// NODE 1
+	// verify if node1 is mapped, if not map it, if is, return index and increment
 	cout << "Enter name of the first node: ";
 	cin >> name1; 
 	cout << endl;
+
+	if ( myMap.find (name1) )
+	{
+		index1 = myMap._Key (name1);
+	}
+	else
+	{
+		myMap.insert (name1);
+		nodeCount_ ++;
+	}
+	
+	// NODE 2
+	// verify if node2 is mapped, if not map it, if is, return index and increment
 	cout << "Enter name of the second node: ";
-	cin >> name2 
+	cin >> name2;
+	cout << endl;
+	if ( myMap.find (name2) )
+	{
+		index2 = myMap._Key (name2);
+	}
+	else
+	{
+		myMap.insert (name2);
+		nodeCount_ ++;
+	}
+
+	// prompt user for cost information between the nodes
+	cout << "Enter the cost between the two nodes: ";
+	cin >> cost;
 	cout << endl;
 
+	// establishing the edge
+	Edge_ edge;
 
-	map <string, int> Dijkstra;
+	edge.from_ = index1;
+	edge.to_ = index2;
+	edge.cost_ = cost;
 
-	if ( map <name1>)
+	myMap.insert (edge);
 }	
 
 /******************************************************************************/
