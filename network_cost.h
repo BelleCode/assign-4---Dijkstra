@@ -27,7 +27,7 @@ class Network_Cost
 public:
 	Network_Cost();							// Constructor
 
-	void readInput(istream &infile1);		// reads in input from command line
+	void readInput();					// reads in input from command line
 	void allocate ();					// allocates the right sizes for t
 	bool insertEdge( Network_Cost::EDGE_);	// inserts the edges
 	bool removeEdge (int v, int w);			// removes Edge from table
@@ -53,15 +53,15 @@ private:
 
 	struct TableType
 	{
-		bool visited;				// whether node has been visited
-		int dist;					// shortest distance from source known so far
-		int path;					// previous node in path of min dist
+		bool visited_;				// whether node has been visited
+		int dist_;					// shortest distance from source known so far
+		int path_;					// previous node in path of min dist
 	};
 
 	class GraphM
 	{
-		TableType *_T;				// pointer to a TableType object
-		int **_C;				// pointer to a pointer to a Cost Matrix 
+		TableType *T_;				// pointer to a TableType object
+		int **C_;				// pointer to a pointer to a Cost Matrix 
 	};
 
 

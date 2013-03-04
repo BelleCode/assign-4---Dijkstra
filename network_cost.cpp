@@ -43,15 +43,33 @@ Network_Cost::Network_Cost()
 /******************************************************************************/
 /*	readInput
 /*
-/*	purpose:	reads in information
+/*	purpose:	prompts user for information, 1st node & 2nd node, they can be
+/*				the same, or different, then prompts user for cost
 /*	pre:		none
 /*	post:		size of the item is established
 /*
 /******************************************************************************/
 
-void Network_Cost::readInput(istream &infile1)
+void Network_Cost::readInput()
 {
-	
+	int index1;		// place holder for string for first node
+	int index2;		// place holder for string for second node
+
+	string name1;	// string of first node
+	string name2;	// string of second node
+
+	// prompt user for input and obtain first node and second node
+	cout << "Enter name of the first node: ";
+	cin >> name1; 
+	cout << endl;
+	cout << "Enter name of the second node: ";
+	cin >> name2 
+	cout << endl;
+
+
+	map <string, int> Dijkstra;
+
+	if ( map <name1>)
 }	
 
 /******************************************************************************/
@@ -65,10 +83,24 @@ void Network_Cost::readInput(istream &infile1)
 
 void Network_Cost::allocate ()
 {
-	_T = new 
+	T_ = new TableType [nodeCount_];
+	C_ = new (int *)[nodeCount_];
 
+	for (int iterate = 0; iterate < nodeCount_; iterate ++)
+	{
+		C_ = new int[nodeCount_];
+	}
 }
-	
+
+/******************************************************************************/
+/*	insertEdge
+/*
+/*	purpose:	inserts edge information 
+/*	pre:		none
+/*	post:		size of the item is established
+/*
+/******************************************************************************/
+
 bool Network_Cost::insertEdge( Network_Cost::EDGE_);	// inserts the edges
 	bool Network_Cost::removeEdge (int v, int w);			// removes Edge from table
 	void Network_Cost::findShortestPath();				// shortest path
