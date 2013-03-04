@@ -121,12 +121,12 @@ void Network_Cost::readInput()
 
 void Network_Cost::allocate ()
 {
-	T_ = new TableType [nodeCount_];
-	C_ = new (int *)[nodeCount_];
+	GraphM::T_ = new TableType [nodeCount_];
+	GraphM::C_ = new (int *)[nodeCount_];
 
 	for (int iterate = 0; iterate < nodeCount_; iterate ++)
 	{
-		C_ = new int[nodeCount_];
+		GraphM::C_ = new int[nodeCount_];
 	}
 }
 
@@ -139,10 +139,35 @@ void Network_Cost::allocate ()
 /*
 /******************************************************************************/
 
-bool Network_Cost::insertEdge( Network_Cost::EDGE_);	// inserts the edges
-	bool Network_Cost::removeEdge (int v, int w);			// removes Edge from table
-	void Network_Cost::findShortestPath();				// shortest path
+bool Network_Cost::insertEdge( )
+{
 
-	void Network_Cost::allocate ();			// allocates the right sizes for t
+}
 
+/******************************************************************************/
+/*	removeEdge (int v, int w)
+/*
+/*	purpose:	removes an edge from table
+/*	pre:		none
+/*	post:		
+/*
+/******************************************************************************/
 
+bool Network_Cost::removeEdge (int v, int w)
+{
+
+}
+
+/******************************************************************************/
+/*	findShortestPath()
+/*
+/*	purpose:	Given a cost table, and source & destination find the short path
+/*	pre:		none
+/*	post:		
+/*
+/******************************************************************************/
+
+void Network_Cost::findShortestPath()
+{
+
+}

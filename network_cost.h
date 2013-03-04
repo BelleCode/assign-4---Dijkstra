@@ -29,15 +29,13 @@ public:
 
 	void readInput();					// reads in input from command line
 	void allocate ();					// allocates the right sizes for t
-	bool insertEdge( Network_Cost::EDGE_);	// inserts the edges
+	bool insertEdge();	// inserts the edges
 	bool removeEdge (int v, int w);			// removes Edge from table
 	void findShortestPath();				// shortest path
 
-	void allocate ();				// allocates the right sizes for t
-
 private:
 
-	int nodeCount_ = 0;				// keeps track of the count of nodes to 
+	int nodeCount_;				// keeps track of the count of nodes to 
 									// allow for the establishing of size of 
 									// cost tables
 
@@ -48,8 +46,8 @@ private:
 		int cost_;					// what it costs to go from v -> w
 	};
 
-	int v = Edge_.from_;
-	int w = Edge_.to_;
+	int v;							// = Edge_.from_;
+	int w;							// = Edge_.to_;
 
 	struct TableType
 	{
