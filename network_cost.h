@@ -24,8 +24,9 @@ class Network_Cost
 {
 public:
 	Network_Cost();							// Constructor
-
-	void readInput(std::string from, std::string to);	// reads in input from command line
+	
+	// reads in input from command line
+	void readInput(std::string from, std::string to);	
 	void outputShortestPath();				// produces output
 	
 private:

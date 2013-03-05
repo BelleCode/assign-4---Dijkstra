@@ -76,6 +76,7 @@ void Network_Cost::readInput(string source, string dest)
 	{
 		T_[iterate].dist_ =  C_[source_][iterate];
 	}
+	_findShortestPath();
 }
 
 /******************************************************************************/
@@ -156,7 +157,6 @@ bool Network_Cost::_readInputHelper()
 	{
 		return false;
 	}
-	cout << endl;
 
 	// count will return a 1 if found.
 	if ( nodeMap.count (name1) == 1)
@@ -192,7 +192,6 @@ bool Network_Cost::_readInputHelper()
 
 	// prompt user for cost information between the nodes
 	cin >> cost;
-	cout << endl;
 
 	// establishing the edge
 	Edge_ edge;
@@ -306,7 +305,7 @@ void Network_Cost::_findShortestPath( )
 			}
 		}
 
-		if (v == -1)
+		if (v != -1)
 		{
 			// goes through nodes that are connected to v
 			// w = destinationNode
