@@ -1,2 +1,9 @@
-*.vcxproj*
+# Compiler Output
 Debug/
+Release/
+
+# Visual Studio Project Files
+*.vcxproj*
+
+# Eclipse Project Files
+.*project
