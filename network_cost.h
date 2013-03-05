@@ -16,38 +16,26 @@
 #define NETWORK_COST_H
 
 #include <iostream>
-#include <string>			// for string manipulation
+#include <string.h>			// for string manipulation
 #include <list>				// for use of building a list of edges
 #include <map>				// storing the information in easy to find way
-
-using namespace std;
 
 class Network_Cost
 {
 public:
 	Network_Cost();							// Constructor
 
-	void readInput();					// reads in input from command line
-	void allocate ();					// allocates the right sizes for t
-	bool insertEdge();	// inserts the edges
-	bool removeEdge (int v, int w);			// removes Edge from table
-	void findShortestPath();				// shortest path
-
+	void readInput(string from, string to);	// reads in input from command line
+	void outputShortestPath();				// produces output
+	
 private:
 
-	int nodeCount_;				// keeps track of the count of nodes to 
+	int nodeCount_;					// keeps track of the count of nodes to 
 									// allow for the establishing of size of 
 									// cost tables
-
-	struct Edge_
-	{
-		int from_;					// 'v' or source
-		int to_;					// 'w' or destination
-		int cost_;					// what it costs to go from v -> w
-	};
-
-	int v;							// = Edge_.from_;
-	int w;							// = Edge_.to_;
+	
+	int source_;
+	int dest_;
 
 	struct TableType
 	{
@@ -56,13 +44,25 @@ private:
 		int path_;					// previous node in path of min dist
 	};
 
-	class GraphM
+	TableType *T_;					// pointer to a TableType object
+	int **C_;						// pointer to a pointer to a Cost Matrix 
+		
+	map <string, int> nodeMap;			// maps node names to indexes returns int	
+	map <int, string> reverseNodeMap;	// reverses map of node names
+	
+	struct Edge_
 	{
-		TableType *T_;				// pointer to a TableType object
-		int **C_;				// pointer to a pointer to a Cost Matrix 
+		int from_;					// 'v' or source
+		int to_;					// 'w' or destination
+		int cost_;					// what it costs to go from v -> w
 	};
 
+	list <Edge_> edgeList;			// list
 
-
+	void _insertEdge();				// inserts the edges
+	bool _readInputHelper();
+	void _initializeTables();		// fill table with infinity
+	void _allocateTables();			// allocates the right sizes
+	void _findShortestPath();		// shortest path
 };
 #endif

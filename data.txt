@@ -1,0 +1,14 @@
+bli	bfi	6
+bli	sea	16
+bli	pdx	4
+bli	geg	16
+bfi	pdx	6
+bfi	geg	8
+sea	pdx	6
+sea	geg	4
+sea	ykm	8
+pdx	geg	2
+geg	ykm	4
+ykm	bli	8
+ykm	bfi	10
+ykm	sea	4
