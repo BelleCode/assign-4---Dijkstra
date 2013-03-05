@@ -1,6 +1,7 @@
 # Compiler Output
 Debug/
 Release/
+*.out
 
 # Visual Studio Project Files
 *.vcxproj*
