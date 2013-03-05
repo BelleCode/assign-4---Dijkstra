@@ -36,12 +36,22 @@ int main (int argc, char* argv[])
 	// run Dikjstra's
 	Network_Cost Dijkstra;
 
-	string from;
-	string to;
 
+
+	if (argc != 3)
+	{
+		cout << "You done bad!!!!! Please enter the correct number of args" << endl;
+		return 1;
+	}
+
+
+
+	string to (argv[2]);
+	string from (argv[1]);
+		
 	Dijkstra.readInput (from, to);
-
-
+	Dijkstra.outputShortestPath();
+	system ("pause");
 	return 0;
 }
 
