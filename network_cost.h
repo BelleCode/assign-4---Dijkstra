@@ -16,7 +16,7 @@
 #define NETWORK_COST_H
 
 #include <iostream>
-#include <string.h>			// for string manipulation
+#include <string>			// for string manipulation
 #include <list>				// for use of building a list of edges
 #include <map>				// storing the information in easy to find way
 
@@ -25,7 +25,7 @@ class Network_Cost
 public:
 	Network_Cost();							// Constructor
 
-	void readInput(string from, string to);	// reads in input from command line
+	void readInput(std::string from, std::string to);	// reads in input from command line
 	void outputShortestPath();				// produces output
 	
 private:
@@ -47,8 +47,8 @@ private:
 	TableType *T_;					// pointer to a TableType object
 	int **C_;						// pointer to a pointer to a Cost Matrix 
 		
-	map <string, int> nodeMap;			// maps node names to indexes returns int	
-	map <int, string> reverseNodeMap;	// reverses map of node names
+	std::map <std::string, int> nodeMap;			// maps node names to indexes returns int	
+	std::map <int, std::string> reverseNodeMap;	// reverses map of node names
 	
 	struct Edge_
 	{
@@ -57,7 +57,7 @@ private:
 		int cost_;					// what it costs to go from v -> w
 	};
 
-	list <Edge_> edgeList;			// list
+	std::list <Edge_> edgeList;			// list
 
 	void _insertEdge();				// inserts the edges
 	bool _readInputHelper();
