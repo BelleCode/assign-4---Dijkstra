@@ -19,6 +19,7 @@
 #include <list>				// for use of building a list of edges
 #include <map>				// storing the information in easy to find way
 #include <math.h>			// to allow for infinity
+#include <climits>			// to allow for infinity in linux
 
 #define INFINITE INT_MAX
 
@@ -43,7 +44,7 @@ using namespace std;
 /******************************************************************************/
 Network_Cost::Network_Cost()
 {
-
+	nodeCount_ = 0;
 }
 
 /******************************************************************************/
@@ -150,7 +151,6 @@ bool Network_Cost::_readInputHelper()
 
 	// NODE 1
 	// verify if node1 is mapped, if not map it, if is, return index and increment
-	cout << "Enter name of the first node: ";
 	cin >> name1; 
 	if (name1 == "")
 	{
@@ -166,6 +166,7 @@ bool Network_Cost::_readInputHelper()
 	}
 	else
 	{
+		index1 = nodeCount_;
 		nodeMap[name1] = nodeCount_;
 		reverseNodeMap[nodeCount_]= name1;
 		nodeCount_ ++;
@@ -179,10 +180,11 @@ bool Network_Cost::_readInputHelper()
 	if ( nodeMap.count (name2) == 1)
 	{
 		// looks up information using operator[]
-		index1 = nodeMap[name2];
+		index2 = nodeMap[name2];
 	}
 	else
 	{
+		index2 = nodeCount_;
 		nodeMap[name2] = nodeCount_;
 		reverseNodeMap[nodeCount_]= name2;
 		nodeCount_ ++;
