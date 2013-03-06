@@ -15,6 +15,7 @@
 #ifndef NETWORK_COST_H
 #define NETWORK_COST_H
 
+#include <vector>
 #include <iostream>
 #include <string>			// for string manipulation
 #include <list>				// for use of building a list of edges
@@ -28,7 +29,8 @@ public:
 	// reads in input from command line
 	void readInput(std::string from, std::string to);	
 	void outputShortestPath();				// produces output
-	
+	void setOutputFile (const std::string &outputFileName); 
+
 private:
 
 	int nodeCount_;					// keeps track of the count of nodes to 
@@ -37,6 +39,7 @@ private:
 	
 	int source_;
 	int dest_;
+	std::string outputFileName_;
 
 	struct TableType
 	{
@@ -49,7 +52,7 @@ private:
 	int **C_;						// pointer to a pointer to a Cost Matrix 
 		
 	std::map <std::string, int> nodeMap;			// maps node names to indexes returns int	
-	std::map <int, std::string> reverseNodeMap;	// reverses map of node names
+	std::vector <std::string> reverseNodeMap;	// reverses map of node names
 	
 	struct Edge_
 	{

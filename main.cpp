@@ -1,4 +1,4 @@
-//	****************************************************************************
+//	***************************************************************************
 //	main.cpp
 //
 //	Project: lab04
@@ -12,7 +12,7 @@
 //	reference & authors:
 //		http://www.cplusplus.com/articles/DEN36Up4/
 //
-//	****************************************************************************
+//	***************************************************************************
 
 #include <iostream>
 #include <fstream>
@@ -28,15 +28,29 @@ int main (int argc, char* argv[])
 	// run Dikjstra's
 	Network_Cost Dijkstra;
 	
-	if (argc != 3)
+	if (argc != 3 && argc != 5)
 	{
-		cout << "You done bad!!!!! Please enter the correct number of args" << endl;
+		cout << "You done bad!!!!! Please enter the correct number of args" 
+			 << endl;
 		return 1;
 	}
 	
 	string to (argv[2]);
 	string from (argv[1]);
-		
+	
+	if (argc == 5)
+	{
+		if (argv[3][0] == '-' && (argv[3][1] == 'o' || argv[3][1] == 'O'))
+		{
+			Dijkstra.setOutputFile(argv[4]);
+		}
+		else
+		{
+			cout << "You done bad!!!!! Please enter valid args" << endl;
+			return 1;
+		}
+	}
+	
 	Dijkstra.readInput (from, to);
 	Dijkstra.outputShortestPath();
 
