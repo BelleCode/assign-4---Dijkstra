@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -x
+
+rm -f network_cost total_network_cost
+rm -rf Output
+mkdir -p Output
+
+g++ -o network_cost network_cost.cpp graph-draw.cpp main.cpp
+
+./network_cost bli sea -o Output/graph < ./data.txt > Output/path.out
+
+for file in ./Output/*.dot
+do
+    dot -Tgif $file -o $file.gif
+done
+
+g++ -o total_message_cost total_message_cost.cpp
+./total_message_cost < Output/path.out > Output/total_cost.out
