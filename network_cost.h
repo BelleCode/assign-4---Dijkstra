@@ -1,4 +1,4 @@
-//	****************************************************************************
+//	***************************************************************************
 //	network_cost.h
 //
 //	Project: lab04
@@ -10,7 +10,7 @@
 //		same format
 //	
 //
-//	****************************************************************************
+//	***************************************************************************
 
 #ifndef NETWORK_COST_H
 #define NETWORK_COST_H
@@ -44,14 +44,15 @@ private:
 	struct TableType
 	{
 		bool visited_;				// whether node has been visited
-		int dist_;					// shortest distance from source known so far
+		int dist_;					// shortest dist from source known so far
 		int path_;					// previous node in path of min dist
 	};
 
 	TableType *T_;					// pointer to a TableType object
 	int **C_;						// pointer to a pointer to a Cost Matrix 
 		
-	std::map <std::string, int> nodeMap;			// maps node names to indexes returns int	
+	std::map <std::string, int> nodeMap;		// maps node names to indexes 
+												// returns int	
 	std::vector <std::string> reverseNodeMap;	// reverses map of node names
 	
 	struct Edge_
@@ -61,7 +62,7 @@ private:
 		int cost_;					// what it costs to go from v -> w
 	};
 
-	std::list <Edge_> edgeList;			// list
+	std::list <Edge_> edgeList;		// list
 
 	void _insertEdge();				// inserts the edges
 	bool _readInputHelper();
